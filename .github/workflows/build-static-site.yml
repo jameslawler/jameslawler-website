@@ -16,9 +16,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Ghost
         run: docker run -d -p 3001:2368 -v ${{ github.workspace }}/content:/var/lib/ghost/content ghost:alpine
-      # - name: Sleep for 10 seconds
-      #   uses: jakejarvis/wait-action@master
-      #   with:
-      #     time: "10s"
+      - name: Sleep for 10 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: "10s"
       - name: Curl
         run: curl http://localhost:3001/
