@@ -10,7 +10,6 @@ jobs:
         image: ghost:alpine
         ports:
           - 3001:2368
-        options: -v
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
