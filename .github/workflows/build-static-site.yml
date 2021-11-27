@@ -5,16 +5,14 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      ghost:
+        image: ghost:alpine
+        ports:
+          - 3001:2368
+        options: -v
     steps:
-      - name: Run docker container on production
-        uses: appleboy/ssh-action@master
-        with:
-          host: portuguesefromportugal.com
-          username: root
-          key: ${{ secrets.KEY }}
-          port: 22
-          script: |
-            set +e
-            docker rm -f ${{ env.DOCKER_NAME }}
-            set -e
-            docker run -d --name ${{ env.DOCKER_NAME }} --restart always --network pfp --ip ${{ env.IP }} -v ~/ghost-data:/var/lib/ghost/content ghost:4-alpine
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Curl
+        run: curl http://localhost:3001/
