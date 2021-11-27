@@ -8,6 +8,7 @@ jobs:
     services:
       ghost:
         image: ghost:alpine
+        options: -v ${{ github.workspace }}/content/:/var/lib/ghost/content
         ports:
           - 3001:2368
     steps:
