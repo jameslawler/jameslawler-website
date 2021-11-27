@@ -12,7 +12,9 @@ jobs:
         ports:
           - 3001:2368
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: "30s"
       - name: Curl
         run: curl http://localhost:3001/
