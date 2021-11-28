@@ -5,12 +5,6 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
-    # services:
-    #   ghost:
-    #     image: ghost:alpine
-    #     options: -v ${{ github.workspace }}/content/:/var/lib/ghost/content
-    #     ports:
-    #       - 3001:2368
     steps:
       - name: Check out Model Repository
         uses: actions/checkout@v2
@@ -20,5 +14,12 @@ jobs:
         uses: jakejarvis/wait-action@master
         with:
           time: "10s"
-      - name: Curl
-        run: curl http://localhost:3001/
+      - name: Install Packages
+        run: npm install
+      - name: Generate Static Site
+        run: npm run static
+      - name: Deploy to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages
+          folder: static

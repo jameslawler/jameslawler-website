@@ -1,0 +1,12 @@
+{
+  "name": "jameslawler-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "static": "gssg --domain \"http://localhost:3001\""
+  },
+  "dependencies": {
+    "ghost-static-site-generator": "^1.0.1"
+  }
+}
