@@ -14,10 +14,10 @@ jobs:
         uses: jakejarvis/wait-action@master
         with:
           time: "10s"
-      - name: Install ghost-static-site-generator
-        run: npm install -g ghost-static-site-generator
+      - name: Install @jameslawler/ghost-static-site-generator
+        run: npm install -g @jameslawler/ghost-static-site-generator
       - name: Generate Static Site
-        run: gssg
+        run: gssg --url https://jameslawler.github.io/jameslawler-website
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
