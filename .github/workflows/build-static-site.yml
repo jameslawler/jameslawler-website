@@ -17,7 +17,7 @@ jobs:
       - name: Install @jameslawler/ghost-static-site-generator
         run: npm install -g @jameslawler/ghost-static-site-generator
       - name: Generate Static Site
-        run: gssg --url https://jameslawler.github.io --subDir jameslawler-website
+        run: gssg --url https://www.jameslawler.com
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
