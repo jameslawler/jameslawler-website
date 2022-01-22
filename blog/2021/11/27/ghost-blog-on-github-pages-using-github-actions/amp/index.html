@@ -7,16 +7,16 @@
     <title>Ghost Blog on GitHub Pages using GitHub Actions</title>
 
     <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages/" />
+    <link rel="canonical" href="https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages-using-github-actions/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="James Lawler" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Ghost Blog on GitHub Pages using GitHub Actions" />
     <meta property="og:description" content="In this post I will share how I built up this website for free using Ghost CMS, GitHub Pages, and GitHub Actions. GhostGhost is a content management system for self publishing your own website - and it can be self hosted in a Docker container. To start this project you" />
-    <meta property="og:url" content="https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages/" />
+    <meta property="og:url" content="https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages-using-github-actions/" />
     <meta property="article:published_time" content="2021-11-27T22:53:26.000Z" />
-    <meta property="article:modified_time" content="2021-12-29T08:00:25.000Z" />
+    <meta property="article:modified_time" content="2022-01-22T23:00:45.000Z" />
     <meta property="article:tag" content="Ghost" />
     <meta property="article:tag" content="GitHub Actions" />
     <meta property="article:tag" content="GitHub Pages" />
@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Ghost Blog on GitHub Pages using GitHub Actions" />
     <meta name="twitter:description" content="In this post I will share how I built up this website for free using Ghost CMS, GitHub Pages, and GitHub Actions. GhostGhost is a content management system for self publishing your own website - and it can be self hosted in a Docker container. To start this project you" />
-    <meta name="twitter:url" content="https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages/" />
+    <meta name="twitter:url" content="https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages-using-github-actions/" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="James Lawler" />
     <meta name="twitter:label2" content="Filed under" />
@@ -61,9 +61,9 @@
         "sameAs": []
     },
     "headline": "Ghost Blog on GitHub Pages using GitHub Actions",
-    "url": "https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages/",
+    "url": "https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages-using-github-actions/",
     "datePublished": "2021-11-27T22:53:26.000Z",
-    "dateModified": "2021-12-29T08:00:25.000Z",
+    "dateModified": "2022-01-22T23:00:45.000Z",
     "keywords": "Ghost, GitHub Actions, GitHub Pages, Docker",
     "description": " \n\nIn this post I will share how I built up this website for free using Ghost CMS,\nGitHub Pages, and GitHub Actions.\n\nGhost\nGhost [https://ghost.org/] is a content management system for self publishing\nyour own website - and it can be self hosted in a Docker container. To start\nthis project you need to be running the Ghost Docker container on your\ndevelopment computer. This means you need to have Docker installed locally - and\nthere is a handy guide [https://docs.docker.com/get-docker/] on the D",
     "mainEntityOfPage": {
@@ -1069,7 +1069,7 @@
             <section class="post-content">
 
                 <p><amp-img src="https://img.shields.io/badge/Platform-Ghost-informational?style=flat&amp;logo=ghost&amp;logoColor=white&amp;color=2bbc8a" alt="badge" width="100" height="20" layout="fixed"></amp-img> <amp-img src="https://img.shields.io/badge/Platform-GitHub_Pages-informational?style=flat&amp;logo=githubpages&amp;logoColor=white&amp;color=2bbc8a" alt="badge" width="142" height="20" layout="fixed"></amp-img> <amp-img src="https://img.shields.io/badge/CI/CD-GitHub_Actions-informational?style=flat&amp;logo=githubactions&amp;logoColor=white&amp;color=2bbc8a" alt="badge" width="134" height="20" layout="fixed"></amp-img> <amp-img src="https://img.shields.io/badge/Platform-Docker-informational?style=flat&amp;logo=docker&amp;logoColor=white&amp;color=2bbc8a" alt="badge" width="106" height="20" layout="fixed"></amp-img></p>
-<p>In this post I will share how I built up this website for free using Ghost CMS, GitHub Pages, and GitHub Actions.</p><h3 id="ghost">Ghost</h3><p><a href="https://ghost.org/">Ghost</a> is a content management system for self publishing your own website - and it can be self hosted in a Docker container. To start this project you need to be running the Ghost Docker container on your development computer. This means you need to have Docker installed locally - and there is a <a href="https://docs.docker.com/get-docker/">handy guide</a> on the Docker website for the main operating systems.</p><p>Before starting up the Ghost Docker container you will need a directory where you can store the Ghost content (static assets, SQL database, etc). As part of this project I setup a <a href="https://github.com/jameslawler/jameslawler-website">new repository</a> in GitHub to store the content so it would stay under version control.</p><p>To start the Ghost Docker container on your local machine, open a console and navigate to the directory you have setup with a GitHub repository and execute the following command.</p><blockquote><code>docker run -d -p 2368:2368 -v content:/var/lib/ghost/content ghost:alpine</code></blockquote><p>This command will run up the latest version of Ghost using the <a href="https://hub.docker.com/_/ghost">alpine Docker image</a>. It will run on the standard <code>2368</code> port and mount the current <code>content</code>directory into the Docker container at <code>/var/lib/ghost/content</code>. This means that any changes to the Ghost instance (new posts, theme, etc) will be exposed to the current working folder and can be committed to GitHub.</p><p>After running the command, you should be able to access the locally running version of Ghost at <a href="https://www.jameslawler.com/">https://www.jameslawler.com/</a>. At first you will need to setup an account, and then you will be able to add new pages, posts, and change the navigation settings etc. You will also be able to configure the theme for your website.</p><h3 id="github-workflow">GitHub Workflow</h3><p>Once there is a locally running instance of Ghost, the next step is to get it running in GitHub Pages. The key to do this is using GitHub Actions with the help of a GitHub workflow. To setup a GitHub workflow you need to add a <code>.github\workflows</code> folder. Each GitHub workflow is just a <code>yaml</code> file within this directory.</p><pre><code class="language-yaml">name: Deploy Ghost and Generate Static Site
+<p>In this post I will share how I built up this website for free using Ghost CMS, GitHub Pages, and GitHub Actions.</p><h3 id="ghost">Ghost</h3><p><a href="https://ghost.org/">Ghost</a> is a content management system for self publishing your own website - and it can be self hosted in a Docker container. To start this project you need to be running the Ghost Docker container on your development computer. This means you need to have Docker installed locally - and there is a <a href="https://docs.docker.com/get-docker/">handy guide</a> on the Docker website for the main operating systems.</p><p>Before starting up the Ghost Docker container you will need a directory where you can store the Ghost content (static assets, SQL database, etc). For this post I setup a <a href="https://github.com/jameslawlercom/2021-11-27-ghost-blog-on-github-pages-using-github-actions">new repository</a> in GitHub to store the content so it would stay under version control.</p><p>To start the Ghost Docker container on your local machine, open a console and navigate to the directory you have setup with a GitHub repository and execute the following command.</p><blockquote><code>docker run -d -p 2368:2368 -v content:/var/lib/ghost/content ghost:alpine</code></blockquote><p>This command will run up the latest version of Ghost using the <a href="https://hub.docker.com/_/ghost">alpine Docker image</a>. It will run on the standard <code>2368</code> port and mount the current <code>content</code>directory into the Docker container at <code>/var/lib/ghost/content</code>. This means that any changes to the Ghost instance (new posts, theme, etc) will be exposed to the current working folder and can be committed to GitHub.</p><p>After running the command, you should be able to access the locally running version of Ghost at <code>https://www.jameslawler.com/</code>. At first you will need to setup an account (only saved in your local database), and then you will be able to add new pages, posts, and change the navigation settings etc. You will also be able to configure the theme for your website.</p><h3 id="github-workflow">GitHub Workflow</h3><p>Once there is a locally running instance of Ghost, the next step is to get it running in GitHub Pages. The key to do this is using GitHub Actions with the help of a GitHub workflow. To setup a GitHub workflow you need to add a <code>.github\workflows</code> folder. Each GitHub workflow is just a <code>yaml</code> file within this directory.</p><pre><code class="language-yaml">name: Deploy Ghost and Generate Static Site
 
 on:
   push:
@@ -1087,8 +1087,8 @@ jobs:
         uses: jakejarvis/wait-action@master
         with:
           time: "10s"
-      - name: Install @jameslawler/ghost-static-site-generator
-        run: npm install -g @jameslawler/ghost-static-site-generator
+      - name: Install ghost-static-site-generator
+        run: npm install -g ghost-static-site-generator
       - name: Generate Static Site
         run: gssg --url https://www.jameslawler.com
       - name: Deploy to Github Pages
@@ -1104,12 +1104,16 @@ jobs:
     steps:
       - name: Check out Model Repository
         uses: actions/checkout@v2</code></pre><p>The next script is similar to the command we use to run Ghost locally. This will actually run up the instance of Ghost on the GitHub Actions build virtual machine. The main difference here is the use of the build parameter <code>${{ github.workspace }}</code> to access the path to the working directory of the build folder.</p><pre><code class="language-yml">- name: Run Ghost
-        run: docker run -d -p 2368:2368 -v ${{ github.workspace }}/content:/var/lib/ghost/content ghost:alpine</code></pre><p>As Ghost can take a few seconds to start up, a wait script is added to pause the process for 10 seconds.</p><pre><code class="language-yml">- name: Sleep for 10 seconds
-    uses: jakejarvis/wait-action@master
-    with:
-      time: "10s"</code></pre><p>Once enough time has passed, the next script installs globally a npm script that can crawl the Ghost instance and generate a static version of the website.</p><blockquote>Currently this script uses a forked version that I created with a bug fix. There is a <a href="https://github.com/Fried-Chicken/ghost-static-site-generator/pull/52">pull request</a> open on the main repository but it has not yet been merged and released to npm yet.</blockquote><pre><code class="language-yml">- name: Install @jameslawler/ghost-static-site-generator
-    run: npm install -g @jameslawler/ghost-static-site-generator</code></pre><p>The next script will run this tool to do the crawl and generate a static version of the website into a folder called <code>static</code>.</p><pre><code class="language-yml">- name: Generate Static Site
-    run: gssg --url https://www.jameslawler.com</code></pre><p>Finally the last script will deploy the <code>static</code> folder which contains our website to the <code>gh-pages</code> branch of the repository so that it is available on GitHub Pages.</p><h3 id="github-pages">GitHub Pages</h3><p>The last stage of this project is to enable GitHub Pages on your repository. </p>
+  run: docker run -d -p 2368:2368 -v ${{ github.workspace }}/content:/var/lib/ghost/content ghost:alpine</code></pre><p>As Ghost can take a few seconds to start up, a wait script is added to pause the process for 10 seconds.</p><pre><code class="language-yml">- name: Sleep for 10 seconds
+  uses: jakejarvis/wait-action@master
+  with:
+    time: "10s"</code></pre><p>Once enough time has passed, the next script installs globally a npm script that can crawl the Ghost instance and generate a static version of the website.</p><pre><code class="language-yml">- name: Install ghost-static-site-generator
+  run: npm install -g ghost-static-site-generator</code></pre><p>The next script will run this tool to do the crawl and generate a static version of the website into a folder called <code>static</code>.</p><pre><code class="language-yml">- name: Generate Static Site
+  run: gssg</code></pre><p>Finally the last script will deploy the <code>static</code> folder which contains our website to the <code>gh-pages</code> branch of the repository so that it is available on GitHub Pages.</p><pre><code class="language-yml">- name: Deploy to Github Pages
+  uses: JamesIves/github-pages-deploy-action@4.1.7
+  with:
+    branch: gh-pages
+    folder: static</code></pre><h3 id="github-pages">GitHub Pages</h3><p>The last stage of this project is to enable GitHub Pages on your repository.  This is done via the <code>Pages</code> tab in the repository settings.</p><h3 id="summary">Summary</h3><p>After every push to the main branch, the ghost blog will be started in a docker container on the GitHub Actions server, a static version will be crawled automatically and then saved to the GitHub pages branch of the repository. A few minutes later, your website will be running on your GitHub Pages url.</p><p>There is a demonstration repository available <a href="https://github.com/jameslawlercom/2021-11-27-ghost-blog-on-github-pages-using-github-actions">here</a> which demonstrates the <a href="https://github.com/jameslawlercom/2021-11-27-ghost-blog-on-github-pages-using-github-actions/actions">GitHub Actions</a> and <a href="https://jameslawlercom.github.io/2021-11-27-ghost-blog-on-github-pages-using-github-actions/">GitHub Pages</a> project. </p>
 
             </section>
 
