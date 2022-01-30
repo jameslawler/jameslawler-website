@@ -16,7 +16,7 @@
     <meta property="og:description" content="In this post I will share how I built up this website for free using Ghost CMS, GitHub Pages, and GitHub Actions. GhostGhost is a content management system for self publishing your own website - and it can be self hosted in a Docker container. To start this project you" />
     <meta property="og:url" content="https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages-using-github-actions/" />
     <meta property="article:published_time" content="2021-11-27T22:53:26.000Z" />
-    <meta property="article:modified_time" content="2022-01-22T23:23:30.000Z" />
+    <meta property="article:modified_time" content="2022-01-30T16:56:03.000Z" />
     <meta property="article:tag" content="Ghost" />
     <meta property="article:tag" content="GitHub Actions" />
     <meta property="article:tag" content="GitHub Pages" />
@@ -63,7 +63,7 @@
     "headline": "Ghost Blog on GitHub Pages using GitHub Actions",
     "url": "https://www.jameslawler.com/blog/2021/11/27/ghost-blog-on-github-pages-using-github-actions/",
     "datePublished": "2021-11-27T22:53:26.000Z",
-    "dateModified": "2022-01-22T23:23:30.000Z",
+    "dateModified": "2022-01-30T16:56:03.000Z",
     "keywords": "Ghost, GitHub Actions, GitHub Pages, Docker",
     "description": " \n\nIn this post I will share how I built up this website for free using Ghost CMS,\nGitHub Pages, and GitHub Actions.\n\nGhost\nGhost [https://ghost.org/] is a content management system for self publishing\nyour own website - and it can be self hosted in a Docker container. To start\nthis project you need to be running the Ghost Docker container on your\ndevelopment computer. This means you need to have Docker installed locally - and\nthere is a handy guide [https://docs.docker.com/get-docker/] on the D",
     "mainEntityOfPage": {
@@ -1090,7 +1090,7 @@ jobs:
       - name: Install ghost-static-site-generator
         run: npm install -g ghost-static-site-generator
       - name: Generate Static Site
-        run: gssg --url https://www.jameslawler.com
+        run: gssg --url https://jameslawlercom.github.io --subDir 2021-11-27-ghost-blog-on-github-pages-using-github-actions
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
@@ -1108,12 +1108,12 @@ jobs:
   uses: jakejarvis/wait-action@master
   with:
     time: "10s"</code></pre><p>Once enough time has passed, the next script installs globally a npm script that can crawl the Ghost instance and generate a static version of the website.</p><pre><code class="language-yml">- name: Install ghost-static-site-generator
-  run: npm install -g ghost-static-site-generator</code></pre><p>The next script will run this tool to do the crawl and generate a static version of the website into a folder called <code>static</code>.</p><pre><code class="language-yml">- name: Generate Static Site
-  run: gssg</code></pre><p>Finally the last script will deploy the <code>static</code> folder which contains our website to the <code>gh-pages</code> branch of the repository so that it is available on GitHub Pages.</p><pre><code class="language-yml">- name: Deploy to Github Pages
+  run: npm install -g ghost-static-site-generator</code></pre><p>The next script will run this tool to do the crawl and generate a static version of the website into a folder called <code>static</code>. The <code>--url</code> property is used to specify the base domain of the static website (in this case a GitHub Pages site). The <code>--subDir</code> property is used to specify a sub folder of the static website (in this case the name of the GitHub Pages project name).</p><pre><code class="language-yml">- name: Generate Static Site
+  run: gssg --url https://jameslawlercom.github.io --subDir 2021-11-27-ghost-blog-on-github-pages-using-github-actions</code></pre><p>Finally the last script will deploy the <code>static</code> folder which contains our website to the <code>gh-pages</code> branch of the repository so that it is available on GitHub Pages.</p><pre><code class="language-yml">- name: Deploy to Github Pages
   uses: JamesIves/github-pages-deploy-action@4.1.7
   with:
     branch: gh-pages
-    folder: static</code></pre><h3 id="github-pages">GitHub Pages</h3><p>The last stage of this project is to enable GitHub Pages on your repository.  This is done via the <code>Pages</code> tab in the repository settings.</p><h3 id="summary">Summary</h3><p>After updating your blog using the Ghost admin website and push push to the main branch the changes, the ghost blog will be started in a docker container on the GitHub Actions server, a static version will be crawled automatically and then saved to the GitHub pages branch of the repository. A few minutes later, your website will be running on your GitHub Pages website.</p><p>There is a demonstration repository available <a href="https://github.com/jameslawlercom/2021-11-27-ghost-blog-on-github-pages-using-github-actions">here</a> which demonstrates the <a href="https://github.com/jameslawlercom/2021-11-27-ghost-blog-on-github-pages-using-github-actions/actions">GitHub Actions</a> and <a href="https://jameslawlercom.github.io/2021-11-27-ghost-blog-on-github-pages-using-github-actions/">GitHub Pages</a> project. </p>
+    folder: static</code></pre><h3 id="github-pages">GitHub Pages</h3><p>The last stage of this project is to enable GitHub Pages on your repository.  This is done via the <code>Pages</code> tab in the <a href="https://github.com/jameslawlercom/2021-11-27-ghost-blog-on-github-pages-using-github-actions/settings/pages">repository settings</a>.</p><figure class="kg-card kg-image-card"></figure><h3 id="summary">Summary</h3><p>After updating your blog using the Ghost admin website and push push to the main branch the changes, the ghost blog will be started in a docker container on the GitHub Actions server, a static version will be crawled automatically and then saved to the GitHub pages branch of the repository. A few minutes later, your website will be running on your GitHub Pages website.</p><p>There is a demonstration repository available <a href="https://github.com/jameslawlercom/2021-11-27-ghost-blog-on-github-pages-using-github-actions">here</a> which demonstrates the <a href="https://github.com/jameslawlercom/2021-11-27-ghost-blog-on-github-pages-using-github-actions/actions">GitHub Actions</a> and <a href="https://jameslawlercom.github.io/2021-11-27-ghost-blog-on-github-pages-using-github-actions/">GitHub Pages</a> project. </p>
 
             </section>
 
