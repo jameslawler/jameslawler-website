@@ -6,6 +6,7 @@
 
     <title>Scheduled Posts with Ghost and GitHub Actions</title>
 
+    <meta name="description" content="Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages." />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="canonical" href="https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -13,10 +14,10 @@
     <meta property="og:site_name" content="James Lawler" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Scheduled Posts with Ghost and GitHub Actions" />
-    <meta property="og:description" content="Todo" />
+    <meta property="og:description" content="Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages." />
     <meta property="og:url" content="https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/" />
     <meta property="article:published_time" content="2021-12-11T22:23:20.000Z" />
-    <meta property="article:modified_time" content="2021-12-11T22:23:20.000Z" />
+    <meta property="article:modified_time" content="2022-02-02T21:10:31.000Z" />
     <meta property="article:tag" content="Ghost" />
     <meta property="article:tag" content="GitHub Actions" />
     <meta property="article:tag" content="GitHub Pages" />
@@ -24,7 +25,7 @@
     <meta property="article:publisher" content="https://www.facebook.com/ghost" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Scheduled Posts with Ghost and GitHub Actions" />
-    <meta name="twitter:description" content="Todo" />
+    <meta name="twitter:description" content="Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages." />
     <meta name="twitter:url" content="https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="James Lawler" />
@@ -62,9 +63,9 @@
     "headline": "Scheduled Posts with Ghost and GitHub Actions",
     "url": "https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/",
     "datePublished": "2021-12-11T22:23:20.000Z",
-    "dateModified": "2021-12-11T22:23:20.000Z",
+    "dateModified": "2022-02-02T21:10:31.000Z",
     "keywords": "Ghost, GitHub Actions, GitHub Pages",
-    "description": "Todo",
+    "description": "Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages.",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://www.jameslawler.com/"
@@ -1067,7 +1068,12 @@
             </header>
             <section class="post-content">
 
-                <p>Todo</p>
+                <p><amp-img src="https://img.shields.io/badge/Platform-Ghost-informational?style=flat&amp;logo=ghost&amp;logoColor=white&amp;color=2bbc8a" alt="badge" width="100" height="20" layout="fixed"></amp-img> <amp-img src="https://img.shields.io/badge/Platform-Docker-informational?style=flat&amp;logo=docker&amp;logoColor=white&amp;color=2bbc8a" alt="badge" width="106" height="20" layout="fixed"></amp-img> <amp-img src="https://img.shields.io/badge/Platform-GitHub_Pages-informational?style=flat&amp;logo=githubpages&amp;logoColor=white&amp;color=2bbc8a" alt="badge" width="142" height="20" layout="fixed"></amp-img> <amp-img src="https://img.shields.io/badge/CI/CD-GitHub_Actions-informational?style=flat&amp;logo=githubactions&amp;logoColor=white&amp;color=2bbc8a" alt="badge" width="134" height="20" layout="fixed"></amp-img></p>
+<p>Sometimes I want posts in my Ghost blog to only publish in the future on a set date. Ghost has the feature built in, but it is intended to be used with a dynamic Ghost blog that will instantly show the new post when the scheduled date is reached. As I run a static Ghost blog, I wanted to be able to have the same possibilities. To see how I setup a static Ghost blog on GitHub Pages you can see my <a href="https://www.jameslawler.com/tag/ghost-tag/">other posts</a> on the topic.</p><h3 id="scheduled-posts">Scheduled Posts</h3><p>In the Ghost editor when you save an article you have the option to <code>Set it live now</code> or <code>Schedule it for later</code>. When you want to publish later, you can choose the date and time of the scheduled post. </p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Ghost publishing options</figcaption></figure><p>In order for the post to go live at the specified date and time, the Ghost server needs to be running. In order to achieve this, I have setup GitHub Actions to run automatically once a day on a fixed schedule. The workflow is the same as the previous posts with the addition of a <a href="https://crontab.guru/">cron </a>schedule to the trigger section.</p><pre><code class="language-yml">on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 20 * * *"</code></pre><p>This workflow will trigger on a push to the <code>main</code> branch, or everyday at 8pm UTC time. It is important to note that the cron schedule uses UTC time and so you will need to adjust it if you want it to match your local time. To have more granular post times, you would need to increase the frequency of the cron schedule.</p><h3 id="perfect-streak">Perfect Streak</h3><p>The only "negative" with this approach is that it automatically makes daily commits to one of your repositories and it makes your GitHub contributions graph look not so honest.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Not so honest GitHub contribution graph</figcaption></figure><p>You can see that from December onwards is when I enabled the daily GitHub Action to build and deploy my static Ghost blog. But apart from that, the solution is simple and works.</p><h3 id="summary">Summary</h3><p>Using GitHub Actions with a cron schedule allows scheduled Ghost posts to go live within an acceptable timeframe of the publish date. I would say this is fine for a personal blog with infrequent posts. In the future I want to find a way to not publish to GitHub Pages if there were no updates. Perhaps checking if any new urls have been generated since the last time.</p>
 
             </section>
 
