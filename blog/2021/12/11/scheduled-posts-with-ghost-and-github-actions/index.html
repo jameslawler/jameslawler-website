@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>James Lawler</title>
+    <title>Scheduled Posts with Ghost and GitHub Actions</title>
     <link rel="stylesheet" href="/assets/built/screen.css?v=362b734a99">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,27 +28,38 @@
         }
     </script>
 
-    <meta name="description" content="Development Notes" />
+    <meta name="description" content="Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages." />
     <link rel="icon" href="https://www.jameslawler.com/content/images/size/w256h256/2021/12/icon.png" type="image/png" />
-    <link rel="canonical" href="https://www.jameslawler.com/" />
+    <link rel="canonical" href="https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/amp/" />
     
     <meta property="og:site_name" content="James Lawler" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="James Lawler" />
-    <meta property="og:description" content="Development Notes" />
-    <meta property="og:url" content="https://www.jameslawler.com/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Scheduled Posts with Ghost and GitHub Actions" />
+    <meta property="og:description" content="Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages." />
+    <meta property="og:url" content="https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/" />
+    <meta property="article:published_time" content="2021-12-11T22:23:20.000Z" />
+    <meta property="article:modified_time" content="2022-02-02T21:10:31.000Z" />
+    <meta property="article:tag" content="Ghost" />
+    <meta property="article:tag" content="GitHub Actions" />
+    <meta property="article:tag" content="GitHub Pages" />
+    
     <meta property="article:publisher" content="https://www.facebook.com/ghost" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="James Lawler" />
-    <meta name="twitter:description" content="Development Notes" />
-    <meta name="twitter:url" content="https://www.jameslawler.com/" />
+    <meta name="twitter:title" content="Scheduled Posts with Ghost and GitHub Actions" />
+    <meta name="twitter:description" content="Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages." />
+    <meta name="twitter:url" content="https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="James Lawler" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Ghost, GitHub Actions, GitHub Pages" />
     <meta name="twitter:site" content="@ghost" />
     
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "James Lawler",
@@ -58,12 +69,28 @@
             "url": "https://www.jameslawler.com/content/images/size/w256h256/2021/12/icon.png"
         }
     },
-    "url": "https://www.jameslawler.com/",
+    "author": {
+        "@type": "Person",
+        "name": "James Lawler",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.jameslawler.com/content/images/2021/12/2297382.jpg",
+            "width": 365,
+            "height": 365
+        },
+        "url": "https://www.jameslawler.com/author/james/",
+        "sameAs": []
+    },
+    "headline": "Scheduled Posts with Ghost and GitHub Actions",
+    "url": "https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/",
+    "datePublished": "2021-12-11T22:23:20.000Z",
+    "dateModified": "2022-02-02T21:10:31.000Z",
+    "keywords": "Ghost, GitHub Actions, GitHub Pages",
+    "description": "Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages.",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://www.jameslawler.com/"
-    },
-    "description": "Development Notes"
+    }
 }
     </script>
 
@@ -76,7 +103,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="home-template">
+<body class="post-template tag-ghost-tag tag-github-actions tag-github-pages">
     <svg width="0" height="0" style="display: none;">
     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="arrow-left">
         <path d="M26.667 14.667v2.667h-16L18 24.667l-1.893 1.893L5.547 16l10.56-10.56L18 7.333l-7.333 7.333h16z"></path>
@@ -179,7 +206,7 @@
         </a>
     </div>
         <nav class="main-nav hidden-xs hidden-sm hidden-md">
-                <a class="menu-item menu-item-home menu-item-current"
+                <a class="menu-item menu-item-home"
         href="https://www.jameslawler.com/">Home</a>
     <a class="menu-item menu-item-blog"
         href="https://www.jameslawler.com/blog/">Blog</a>
@@ -203,7 +230,7 @@
         <div class="mobile-menu hidden-lg hidden-xl">
             <div class="container">
                 <nav class="mobile-nav">
-                        <a class="menu-item menu-item-home menu-item-current"
+                        <a class="menu-item menu-item-home"
         href="https://www.jameslawler.com/">Home</a>
     <a class="menu-item menu-item-blog"
         href="https://www.jameslawler.com/blog/">Blog</a>
@@ -219,21 +246,111 @@
     </div>
 </header>
 
-            <div class="cover container">
-    <div class="cover-content">
-            <div class="cover-icon">
-                <img class="cover-icon-image" src="https://www.jameslawler.com/content/images/2021/12/icon.png" alt="James Lawler">
+        <header class="sticky">
+            <div class="sticky-title">Scheduled Posts with Ghost and GitHub Actions</div>
+            <button class="button-icon sticky-toc-button" aria-label="Table of Contents">
+                <svg class="icon">
+                    <use xlink:href="#table-of-contents"></use>
+                </svg>
+                <div class="sticky-toc"></div>
+            </button>
+            <div class="sticky-track">
+                <div class="sticky-progress"></div>
             </div>
-
-            <div class="cover-description">Development Notes</div>
-
-    </div>
-</div>        <div class="site-content">
+        </header>
+        <div class="site-content">
             
 <div class="content-area">
     <main class="site-main">
-        <div class="post-feed container medium">
-                <article class="feed post tag-ghost-tag tag-github-actions tag-github-pages tag-docker no-image">
+            <article class="single post tag-ghost-tag tag-github-actions tag-github-pages no-image">
+    <header class="single-header kg-canvas">
+            <div class="single-meta">
+                <span class="single-meta-item single-meta-date">
+                    <time datetime="2021-12-11">
+                        Dec 11, 2021
+                    </time>
+                </span>
+                <span class="single-meta-item single-meta-length">
+                    2 min read
+                </span>
+                    <span class="single-meta-item single-meta-tag">
+                        <a class="post-tag post-tag-ghost-tag" href="/tag/ghost-tag/">
+                            Ghost
+                        </a>
+                    </span>
+            </div>
+        <h1 class="single-title">Scheduled Posts with Ghost and GitHub Actions</h1>
+            <div class="single-excerpt">
+                Automatically publish schedule post to a static Ghost blog instance running on GitHub Pages.
+            </div>
+    </header>
+    <div class="single-content gh-content kg-canvas">
+        <!--kg-card-begin: markdown--><p><img src="https://img.shields.io/badge/Platform-Ghost-informational?style=flat&amp;logo=ghost&amp;logoColor=white&amp;color=2bbc8a" alt="badge" loading="lazy"> <img src="https://img.shields.io/badge/Platform-Docker-informational?style=flat&amp;logo=docker&amp;logoColor=white&amp;color=2bbc8a" alt="badge" loading="lazy"> <img src="https://img.shields.io/badge/Platform-GitHub_Pages-informational?style=flat&amp;logo=githubpages&amp;logoColor=white&amp;color=2bbc8a" alt="badge" loading="lazy"> <img src="https://img.shields.io/badge/CI/CD-GitHub_Actions-informational?style=flat&amp;logo=githubactions&amp;logoColor=white&amp;color=2bbc8a" alt="badge" loading="lazy"></p>
+<!--kg-card-end: markdown--><p>Sometimes I want posts in my Ghost blog to only publish in the future on a set date. Ghost has the feature built in, but it is intended to be used with a dynamic Ghost blog that will instantly show the new post when the scheduled date is reached. As I run a static Ghost blog, I wanted to be able to have the same possibilities. To see how I setup a static Ghost blog on GitHub Pages you can see my <a href="https://www.jameslawler.com/tag/ghost-tag/">other posts</a> on the topic.</p><h3 id="scheduled-posts">Scheduled Posts</h3><p>In the Ghost editor when you save an article you have the option to <code>Set it live now</code> or <code>Schedule it for later</code>. When you want to publish later, you can choose the date and time of the scheduled post. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://www.jameslawler.com/content/images/2022/02/ghost-publish-options-1.png" class="kg-image" alt loading="lazy" width="361" height="330"><figcaption>Ghost publishing options</figcaption></figure><p>In order for the post to go live at the specified date and time, the Ghost server needs to be running. In order to achieve this, I have setup GitHub Actions to run automatically once a day on a fixed schedule. The workflow is the same as the previous posts with the addition of a <a href="https://crontab.guru/">cron </a>schedule to the trigger section.</p><pre><code class="language-yml">on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 20 * * *"</code></pre><p>This workflow will trigger on a push to the <code>main</code> branch, or everyday at 8pm UTC time. It is important to note that the cron schedule uses UTC time and so you will need to adjust it if you want it to match your local time. To have more granular post times, you would need to increase the frequency of the cron schedule.</p><h3 id="perfect-streak">Perfect Streak</h3><p>The only "negative" with this approach is that it automatically makes daily commits to one of your repositories and it makes your GitHub contributions graph look not so honest.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://www.jameslawler.com/content/images/2022/02/github-streak-graph.png" class="kg-image" alt loading="lazy" width="1334" height="325" srcset="https://www.jameslawler.com/content/images/size/w600/2022/02/github-streak-graph.png 600w, https://www.jameslawler.com/content/images/size/w1000/2022/02/github-streak-graph.png 1000w, https://www.jameslawler.com/content/images/2022/02/github-streak-graph.png 1334w" sizes="(min-width: 720px) 720px"><figcaption>Not so honest GitHub contribution graph</figcaption></figure><p>You can see that from December onwards is when I enabled the daily GitHub Action to build and deploy my static Ghost blog. But apart from that, the solution is simple and works.</p><h3 id="summary">Summary</h3><p>Using GitHub Actions with a cron schedule allows scheduled Ghost posts to go live within an acceptable timeframe of the publish date. I would say this is fine for a personal blog with infrequent posts. In the future I want to find a way to not publish to GitHub Pages if there were no updates. Perhaps checking if any new urls have been generated since the last time.</p>
+    </div>
+        <footer class="single-footer container medium">
+            <div class="single-footer-left">
+                    <div class="navigation navigation-previous">
+                        <a class="navigation-link" href="/blog/2021/12/04/custom-domain-for-static-ghost-blog-on-github-pages/"
+                            aria-label="Previous post">
+                            <svg class="icon navigation-icon">
+                                <use xlink:href="#arrow-left"></use>
+                            </svg>
+                        </a>
+                    </div>
+            </div>
+            <div class="single-footer-middle">
+                    <div class="single-footer-top">
+                        <h3 class="single-footer-title">Published by:</h3>
+                        <div class="author-list">
+                                <div class="author-image-placeholder u-placeholder square">
+                                    <a href="/author/james/" title="James Lawler">
+                                        <img class="author-image lazyload u-object-fit"
+                                            data-srcset="/content/images/size/w150/2021/12/2297382.jpg"
+                                            src="/content/images/size/w150/2021/12/2297382.jpg"
+                                            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                            alt="James Lawler">
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="single-footer-bottom">
+                        <div class="share">
+                            <a class="share-link share-link-facebook" href="https://www.facebook.com/sharer.php?u=https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/" target="_blank" rel="noopener noreferrer">
+                                <svg class="icon icon-facebook">
+                                    <use xlink:href="#facebook"></use>
+                                </svg>
+                                Share
+                            </a>
+                            <a class="share-link share-link-twitter" href="https://twitter.com/intent/tweet?url=https://www.jameslawler.com/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/&text=Scheduled%20Posts%20with%20Ghost%20and%20GitHub%20Actions" target="_blank" rel="noopener noreferrer">
+                                <svg class="icon icon-twitter">
+                                    <use xlink:href="#twitter"></use>
+                                </svg>
+                                Tweet
+                            </a>
+                        </div>
+                    </div>
+            </div>
+            <div class="single-footer-right">
+                    <div class="navigation navigation-next">
+                        <a class="navigation-link" href="/blog/2021/12/17/private-repository-to-build-and-deploy-ghost-blog/"
+                            aria-label="Next post">
+                            <svg class="icon navigation-icon">
+                                <use xlink:href="#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+            </div>
+        </footer>
+</article>                        <section class="related-wrapper">
+            <div class="container medium">
+                <h3 class="related-title">You might also like...</h3>
+                <div class="related-feed">
+                        <article class="feed post no-image">
     <div class="feed-calendar">
         <div class="feed-calendar-month">
             Dec
@@ -255,29 +372,7 @@
         <use xlink:href="#chevron-right"></use>
     </svg>
     <a class="u-permalink" href="/blog/2021/12/17/private-repository-to-build-and-deploy-ghost-blog/" aria-label="Private Repository to Build and Deploy Ghost Blog"></a>
-</article>                <article class="feed post tag-ghost-tag tag-github-actions tag-github-pages no-image">
-    <div class="feed-calendar">
-        <div class="feed-calendar-month">
-            Dec
-        </div>
-        <div class="feed-calendar-day">
-            11
-        </div>
-    </div>
-    <h2 class="feed-title">Scheduled Posts with Ghost and GitHub Actions</h2>
-    <div class="feed-right">
-        <svg class="icon feed-visibility feed-visibility-public">
-            <use xlink:href="#star"></use>
-        </svg>
-        <div class="feed-length">
-            2 min read
-        </div>
-    </div>
-    <svg class="icon feed-icon">
-        <use xlink:href="#chevron-right"></use>
-    </svg>
-    <a class="u-permalink" href="/blog/2021/12/11/scheduled-posts-with-ghost-and-github-actions/" aria-label="Scheduled Posts with Ghost and GitHub Actions"></a>
-</article>                <article class="feed post tag-ghost-tag tag-github-pages no-image">
+</article>                        <article class="feed post no-image">
     <div class="feed-calendar">
         <div class="feed-calendar-month">
             Dec
@@ -299,7 +394,7 @@
         <use xlink:href="#chevron-right"></use>
     </svg>
     <a class="u-permalink" href="/blog/2021/12/04/custom-domain-for-static-ghost-blog-on-github-pages/" aria-label="Custom Domain for Static Ghost Blog on GitHub Pages"></a>
-</article>                <article class="feed post tag-ghost-tag tag-github-actions tag-github-pages tag-docker no-image">
+</article>                        <article class="feed post no-image">
     <div class="feed-calendar">
         <div class="feed-calendar-month">
             Nov
@@ -321,18 +416,10 @@
         <use xlink:href="#chevron-right"></use>
     </svg>
     <a class="u-permalink" href="/blog/2021/11/27/ghost-blog-on-github-pages-using-github-actions/" aria-label="Ghost Blog on GitHub Pages using GitHub Actions"></a>
-</article>        </div>
-        <nav class="pagination">
-</nav>
-<div class="infinite-scroll-status">
-    <div class="infinite-scroll-request"></div>
-</div>
-<div class="infinite-scroll-action">
-    <button class="button button-secondary infinite-scroll-button">Load more</button>
-</div>
-
-
-    </main>
+</article>                </div>
+            </div>
+        </section>
+                </main>
 </div>
         </div>
         <footer class="site-footer container">
